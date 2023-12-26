@@ -489,13 +489,13 @@ NUM_HEADS = 8
 DFF = 512
 DROPOUT = 0.1
 
-model = transformer(
-    vocab_size=VOCAB_SIZE,
-    num_layers=NUM_LAYERS,
-    dff=DFF,
-    d_model=D_MODEL,
-    num_heads=NUM_HEADS,
-    dropout=DROPOUT)
+# model = transformer(
+#     vocab_size=VOCAB_SIZE,
+#     num_layers=NUM_LAYERS,
+#     dff=DFF,
+#     d_model=D_MODEL,
+#     num_heads=NUM_HEADS,
+#     dropout=DROPOUT)
 
 
 MAX_LENGTH = 40
@@ -519,7 +519,7 @@ def accuracy(y_true, y_pred):
     acc = train_accuracy(y_true, y_pred)
     return tf.reduce_mean(acc)
 
-model.compile(optimizer=optimizer, loss=loss_function, metrics=[accuracy])
+# model.compile(optimizer=optimizer, loss=loss_function, metrics=[accuracy])
 
 EPOCHS = 50
 
@@ -527,7 +527,7 @@ EPOCHS = 50
 # model.save_pretrained('./models/chatbot.h5')
 # model.save('./models/chatbot.h5')
 
-model = tf.saved_model.load('./models/chatbot.h5')
+model = tf.keras.models.load_model('./models/chatbot.h5', custom_objects={'PositionalEncoding':PositionalEncoding})
 # custom_objects = {
 #     'PositionalEncoding': PositionalEncoding,
 #     'CustomSchedule':CustomSchedule,

@@ -187,7 +187,7 @@ class Exam(QMainWindow, form_window):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     client = OpenAI(
-        api_key="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")
+        api_key="api_key input")
     mainWindow = Exam()
     mainWindow.show()
     sys.exit(app.exec_())
