@@ -1,6 +1,6 @@
 from openai import OpenAI
 client = OpenAI(
-    api_key="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")
+    api_key="")
 
 # # 생성된 데이터셋 파일을 openai 에 등록합니다.
 # client.files.create(
